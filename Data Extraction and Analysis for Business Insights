@@ -1,0 +1,46 @@
+-- SQL script for Data Extraction and Analysis for Business Insights
+
+-- Description: Conducted data extraction and analysis to derive valuable business insights for Uniguest.
+
+-- Create a table to store raw data
+CREATE TABLE RawData (
+    RecordID INT PRIMARY KEY,
+    Date DATE,
+    Location VARCHAR(255),
+    Sales DECIMAL(10, 2),
+    Expenses DECIMAL(10, 2),
+    Profit DECIMAL(10, 2)
+);
+
+-- Insert raw data
+INSERT INTO RawData (RecordID, Date, Location, Sales, Expenses, Profit)
+VALUES
+    (1, '2023-01-05', 'Store A', 12000.00, 8000.00, 4000.00),
+    (2, '2023-01-05', 'Store B', 15000.00, 9000.00, 6000.00),
+    (3, '2023-01-06', 'Store A', 11000.00, 7500.00, 3500.00),
+    (4, '2023-01-06', 'Store B', 16000.00, 9200.00, 6800.00),
+    (5, '2023-01-07', 'Store A', 13000.00, 7800.00, 5200.00),
+    (6, '2023-01-07', 'Store B', 14500.00, 8500.00, 6000.00);
+
+-- Create a table to store analysis results
+CREATE TABLE BusinessInsights (
+    AnalysisID INT PRIMARY KEY,
+    Date DATE,
+    TotalSales DECIMAL(10, 2),
+    TotalExpenses DECIMAL(10, 2),
+    TotalProfit DECIMAL(10, 2),
+    Insights TEXT
+);
+
+-- Insert analysis results
+INSERT INTO BusinessInsights (AnalysisID, Date, TotalSales, TotalExpenses, TotalProfit, Insights)
+VALUES
+    (1, '2023-01-05', 27000.00, 17000.00, 10000.00, 'Store B had the highest profit on this date.'),
+    (2, '2023-01-06', 27000.00, 16700.00, 10300.00, 'Both stores had good sales on this date.'),
+    (3, '2023-01-07', 27500.00, 16300.00, 11200.00, 'Store A showed the highest profit with increased sales.');
+
+-- Display raw data
+SELECT * FROM RawData;
+
+-- Display business insights
+SELECT * FROM BusinessInsights;
